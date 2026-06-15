@@ -19,6 +19,11 @@
 - ISO 13849 控制系统安全评估
 - 通用安全红线验证
 
+### 4. 交付方案包 (delivery_package) [NEW]
+- 三模块打包为可销售的工业AI交付方案
+- 一键生成交付报告（合规+调参+因果）
+- 支持压缩机站/注塑成型/流程化工等标准场景
+
 ## 安装
 
 ```bash
@@ -44,5 +49,26 @@ checker = ComplianceChecker()
 result = checker.check("修改安全回路配置")
 ```
 
-## 许可
+# 许可
 MIT
+
+## 交付方案
+
+交付方案包把三个模块打包为可销售的工业AI交付方案：
+
+```python
+from delivery_package import IndustrialDeliveryPackage
+
+pkg = IndustrialDeliveryPackage()
+plan = pkg.generate_delivery_plan({
+    "project_name": "压缩机站MIMO控制优化",
+    "actions": ["read sensor temperature"],
+    "plant_params": {"K": 1.0, "tau": 1.0, "theta": 0.1},
+    "variables": ["进气压力", "排气温度", "流量"],
+    "data_sample": [[3.2,85,120],[3.4,87,125],[3.1,83,118]],
+})
+print(pkg.generate_report(plan))
+```
+
+完整文档: `DELIVERY.md`
+演示脚本: `examples/delivery_demo.py`
