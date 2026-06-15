@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# 敏感数据
+*.json
+*.jsonl
+training/
+systems/security/
+systems/nervous/
+systems/autonomous_loop/
+deploy/
+credentials/
+logs/
+memory/
+scripts/
+
+# 核心资产（绝对不公开）
+# - 12核权重表
+# - 智能体协作协议
+# - 五层记忆实现
+# - 因果训练数据
+# - 韩非子审查规则
+# - 排期系统
+# - 任何业务决策逻辑
+
+# 工具
+.DS_Store
+*.egg-info/
+dist/
+build/
